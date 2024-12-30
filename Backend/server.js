@@ -7,6 +7,12 @@ require('dotenv').config();
 const cors = require('cors');
 app.use(cors());
 
+app.use(express.static(path.join(__dirname, '../Frontend')));
+
+// Serve the index.html file for any other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../Frontend', 'index.html'));
+});
 
 const reviewroutes=require('./routes/review_routes');
 app.use('/review',reviewroutes);
