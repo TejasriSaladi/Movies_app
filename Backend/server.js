@@ -1,5 +1,6 @@
 const express=require('express');
 app=express();
+const path = require('path');
 const db=require('./db');
 const bodyParser=require('body-parser');
 app.use(bodyParser.json());
