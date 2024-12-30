@@ -8,14 +8,10 @@ const cors = require('cors');
 app.use(cors());
 
 
-const PORT=process.env.PORT||3000;
-
-
-
 const reviewroutes=require('./routes/review_routes');
 app.use('/review',reviewroutes);
 
-
+const PORT=process.env.PORT||3000;
 app.listen(PORT,()=>{
     console.log(`listening on ${PORT}`);
 })
