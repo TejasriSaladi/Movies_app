@@ -71,7 +71,7 @@ function goBackToMovies() {
   main.style.display = 'block';
 }
 function fetchReviews(movieID,movieTitle) {
-  fetch(`http://localhost:3000/review/${movieID}`)
+  fetch(`https://movies-tw09.onrender.com/review/${movieID}`)
     .then(response => response.json())
     .then(data => {
       if (data.message) {
@@ -94,7 +94,7 @@ function addReview(movieID, movieTitle) {
       review: reviewText,
     };
 
-    fetch(`http://localhost:3000/review/${movieID}`, {
+    fetch(`https://movies-tw09.onrender.com/review/${movieID}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -190,7 +190,7 @@ function displayReviews(reviews, movieID) {
 function editReview(review, movieID) {
   const newReview = prompt('Edit your review:', review.review);
   if (newReview && newReview !== review.review) {
-    fetch(`http://localhost:3000/review/${movieID}`, {
+    fetch(`https://movies-tw09.onrender.com/review/${movieID}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -212,7 +212,7 @@ function editReview(review, movieID) {
 function deleteReview(review, movieID) {
   const confirmDelete = confirm('Are you sure you want to delete this review?');
   if (confirmDelete) {
-    fetch(`http://localhost:3000/review/${movieID}`, {
+    fetch(`https://movies-tw09.onrender.com/review/${movieID}`, {
       method: 'DELETE',
     })
     .then(response => response.json())
