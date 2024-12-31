@@ -9,7 +9,8 @@ const cors = require('cors');
 app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'Frontend')));
-
+const reviewroutes=require('./routes/review_routes');
+app.use('/review',reviewroutes);
 // Catch-all route to serve the index.html file
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'Frontend', 'index.html'));
@@ -21,8 +22,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../Frontend', 'index.html'));
 });
 
-const reviewroutes=require('./routes/review_routes');
-app.use('/review',reviewroutes);
 
 const PORT=process.env.PORT||3000;
 app.listen(PORT,()=>{
