@@ -10,6 +10,11 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'Frontend')));
 
+// Catch-all route to serve the index.html file
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Frontend', 'index.html'));
+});
+
 
 // Serve the index.html file for any other routes
 app.get('*', (req, res) => {
